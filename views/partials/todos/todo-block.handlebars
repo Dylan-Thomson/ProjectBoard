@@ -1,11 +1,13 @@
-<li>
+<li class="my-1">
     {{#unless completed}}
-	<button class="complete" data-id="{{id}}" data-completed="{{completed}}">
-		{{todo}}
-	</button>
-
+        <div class="py-4 px-2 border border-primary complete" data-id="{{id}}" data-completed="{{completed}}">
+            {{todo}}
+        </div>
     {{/unless}}
+
     {{#if completed}}
-        {{todo}}
+        <div class="py-4 px-2 border border-secondary completed">
+            {{todo}}
+        </div>
     {{/if}}
 </li>

@@ -18,7 +18,7 @@ router.put("/api/todos/:id", (req, res) => {
 
     todo.update(
         {
-            completed: true
+            status: "'complete'"
         },
         condition,
         result => {

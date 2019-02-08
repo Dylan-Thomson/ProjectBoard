@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $(".complete").on("click", function(event) {
+    $(".todo").on("click", function(event) {
         event.preventDefault();
         const id = $(this).data("id");
         console.log($(this).data("id"));

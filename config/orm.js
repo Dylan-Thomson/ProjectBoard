@@ -70,6 +70,7 @@ const orm = {
 
         console.log(queryString);
 
+
         connection.query(queryString, (err, result) => {
             if(err) {
                 throw err;

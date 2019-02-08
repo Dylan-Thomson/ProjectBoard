@@ -1,0 +1,11 @@
+.todo {
+    /* border: 1px solid green; */
+    /* transition-property: all;
+    transition-duration: 0.5s; */
+}
+
+.todo:hover {
+    /* cursor: pointer;
+    background: blue;
+    color: white; */
+}

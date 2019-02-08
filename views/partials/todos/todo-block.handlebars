@@ -1,0 +1,11 @@
+<li>
+    {{#unless completed}}
+	<button class="complete" data-id="{{id}}" data-completed="{{completed}}">
+		{{todo}}
+	</button>
+
+    {{/unless}}
+    {{#if completed}}
+        {{todo}}
+    {{/if}}
+</li>

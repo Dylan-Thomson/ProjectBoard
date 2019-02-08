@@ -2,7 +2,16 @@
 
 <ul>
   {{#each todos}}
-    <li>{{todo}}</li>
+    {{#unless completed}}
+        {{> todos/todo-block completed=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+<ul>
+  {{#each todos}}
+    {{#if completed}}
+        {{> todos/todo-block completed=true}}
+    {{/if}}
   {{/each}}
 </ul>
 

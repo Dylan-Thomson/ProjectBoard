@@ -7,6 +7,7 @@ $(document).ready(() => {
         // put request
         $.ajax({
             url: "api/todos/" + id,
+            method: "PUT"
         }).then(() => {
             location.reload();
         });

@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/api/todos/:id", (req, res) => {
+router.put("/api/todos/:id", (req, res) => {
     const condition = "id = " + req.params.id;
 
     todo.update(
@@ -27,7 +27,13 @@ router.get("/api/todos/:id", (req, res) => {
             }
             res.status(200).end();
         }
-    )
+    );
+});
+
+router.post("/api/todos", (req, res) => {
+    todo.create(["todo"], [req.body.todo], result => {
+        res.redirect("../")
+    });
 });
 
 module.exports = router;

@@ -1,12 +1,12 @@
 USE projectboard_db;
-INSERT INTO todos (todo)
+INSERT INTO todos (task)
 VALUES ("Write code");
 
-INSERT INTO todos (todo)
+INSERT INTO todos (task)
 VALUES ("Cry");
 
-INSERT INTO todos (todo)
+INSERT INTO todos (task)
 VALUES ("Debug");
 
-INSERT INTO todos (todo, completed)
+INSERT INTO todos (task, completed)
 VALUES ("Sleep", true);

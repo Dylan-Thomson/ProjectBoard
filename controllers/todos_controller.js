@@ -32,7 +32,7 @@ router.put("/api/todos/:id", (req, res) => {
 });
 
 router.post("/api/todos", (req, res) => {
-    todo.create(["todo"], [req.body.todo], result => {
+    todo.create(["task"], [req.body.todo], result => {
         res.redirect("../")
     });
 });

@@ -1,8 +1,8 @@
 $(document).ready(() => {
-    $(".todo").on("click", function(event) {
+    // User clicks checkmark to change todo to "completed"
+    $(".complete-task").on("click", function(event) {
         event.preventDefault();
-        const id = $(this).data("id");
-        console.log($(this).data("id"));
+        const id = $(this).closest(".todo").data("id");
 
         // put request
         $.ajax({
@@ -11,5 +11,9 @@ $(document).ready(() => {
         }).then(() => {
             location.reload();
         });
+    });
+
+    $(".open-form").on("click", event => {
+        $("#add-task-modal").modal("toggle");
     });
 });

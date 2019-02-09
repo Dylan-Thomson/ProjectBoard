@@ -3,54 +3,78 @@
         <h1 class="text-center">Project Board</h1>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="h5">To Do</h2>
-                    <ul class="list-unstyled">
-                        {{!-- {{#each todos}}
-                            {{#if_equal status "todo"}}
-                                {{> todos/todo-block completed=false}}
-                            {{/if_equal}}
-                        {{/each}} --}}
-                        {{#each todos}}
-                            {{#unless completed}}
-                                {{> todos/todo-block completed=false}}
-                            {{/unless}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h2>Completed</h2>
-                    <ul class="list-unstyled">
-                        {{!-- {{#each todos}}
-                            {{#if_equal status "complete"}}
-                                {{> todos/todo-block completed=true}}
-                            {{/if_equal}}
-                        {{/each}} --}}
-                        {{#each todos}}
-                            {{#if completed}}
-                                {{> todos/todo-block completed=true}}
-                            {{/if}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h2>Add New To Do</h2>
-    <form action="/api/todos" method="POST">
+    {{!-- <h2>Add New To Do</h2>
+    <form class="my-4" action="/api/todos" method="POST">
         <div class="form-group">
             <input class="form-control" name="todo" type="text">
         </div>
         <button type="submit" value="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form> --}}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">To Do <span class="float-right"><i class="open-form fas fa-plus-square"></i></span></h2>
+            <ul class="list-unstyled">
+                {{!-- {{#each todos}}
+                    {{#if_equal status "todo"}}
+                        {{> todos/todo-block completed=false}}
+                    {{/if_equal}}
+                {{/each}} --}}
+                {{#each todos}}
+                    {{#unless completed}}
+                        {{> todos/todo-block completed=false}}
+                    {{/unless}}
+                {{/each}}
+            </ul>
+            {{!-- <div class="card">
+                <div class="card-body">
+                </div>
+            </div> --}}
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">Completed</h2>
+            <ul class="list-unstyled">
+                {{!-- {{#each todos}}
+                    {{#if_equal status "complete"}}
+                        {{> todos/todo-block completed=true}}
+                    {{/if_equal}}
+                {{/each}} --}}
+                {{#each todos}}
+                    {{#if completed}}
+                        {{> todos/todo-block completed=true}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{!-- <div class="card">
+                <div class="card-body">
+                </div>
+            </div> --}}
+        </div>
+    </div>
 </div>
 
 
+<div class="modal fade" id="add-task-modal" tabindex="-1" role="dialog" aria-labelledby="add-task-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="my-4" action="/api/todos" method="POST">
+            <div class="form-group">
+                <input class="form-control" name="todo" type="text">
+            </div>
+            <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      {{!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> --}}
+    </div>
+  </div>
+</div>

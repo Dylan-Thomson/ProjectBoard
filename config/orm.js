@@ -85,7 +85,7 @@ function test() {
         console.log(result);
     });
 
-    orm.insertOne("todos", ["todo"], ["Eat dinner"], result => {
+    orm.insertOne("todos", ["task"], ["Eat dinner"], result => {
         console.log(result);
     });
 
@@ -96,7 +96,7 @@ function test() {
     orm.updateOne(
         "todos",
         {
-        todo: "Cook Dinner"
+        task: "Cook Dinner"
         },
         "id = 4",
         result => {

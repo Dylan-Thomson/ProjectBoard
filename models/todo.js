@@ -22,13 +22,13 @@ function test() {
     todo.all(result => {
         console.log(result);
     });
-    todo.create(["todo"], ["Sleep"], result => {
+    todo.create(["task"], ["Sleep"], result => {
         console.log(result);
     });
     todo.all(result => {
         console.log(result);
     });
-    todo.update({todo: "Cook dinner"}, "id = 4", result => {
+    todo.update({task: "Cook dinner"}, "id = 4", result => {
         console.log(result);
     })
     todo.all(result => {

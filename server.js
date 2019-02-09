@@ -15,17 +15,7 @@ app.use(express.json());
 const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ 
-    defaultLayout: "main",
-    helpers: {
-        if_equal: function(a, b, opts) {
-            if(a === b) {
-                return opts.fn(this)
-            }
-            else {
-                return opts.inverse(this);
-            }
-        }
-    } 
+    defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 

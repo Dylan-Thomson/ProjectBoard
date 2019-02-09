@@ -9,16 +9,16 @@
                 <div class="card-body">
                     <h2 class="h5">To Do</h2>
                     <ul class="list-unstyled">
-                        {{#each todos}}
+                        {{!-- {{#each todos}}
                             {{#if_equal status "todo"}}
                                 {{> todos/todo-block completed=false}}
                             {{/if_equal}}
-                        {{/each}}
-                        {{!-- {{#each todos}}
+                        {{/each}} --}}
+                        {{#each todos}}
                             {{#unless completed}}
                                 {{> todos/todo-block completed=false}}
                             {{/unless}}
-                        {{/each}} --}}
+                        {{/each}}
                     </ul>
                 </div>
             </div>
@@ -28,16 +28,16 @@
                 <div class="card-body">
                     <h2>Completed</h2>
                     <ul class="list-unstyled">
-                        {{#each todos}}
+                        {{!-- {{#each todos}}
                             {{#if_equal status "complete"}}
                                 {{> todos/todo-block completed=true}}
                             {{/if_equal}}
-                        {{/each}}
-                        {{!-- {{#each todos}}
+                        {{/each}} --}}
+                        {{#each todos}}
                             {{#if completed}}
                                 {{> todos/todo-block completed=true}}
                             {{/if}}
-                        {{/each}} --}}
+                        {{/each}}
                     </ul>
                 </div>
             </div>

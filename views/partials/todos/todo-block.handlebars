@@ -1,23 +1,23 @@
 <li class="my-1">
-    {{#if_equal status "todo"}}
+    {{!-- {{#if_equal status "todo"}}
         <div class="py-4 px-2 border border-primary todo" data-id="{{id}}">
             {{id}}. {{todo}}
         </div>
-    {{/if_equal}}
-    {{!-- {{#unless completed}}
+    {{/if_equal}} --}}
+    {{#unless completed}}
         <div class="py-4 px-2 border border-primary todo" data-id="{{id}}" data-completed="{{completed}}">
             {{id}}. {{todo}}
         </div>
-    {{/unless}} --}}
+    {{/unless}}
 
-    {{#if_equal status "complete"}}
+    {{!-- {{#if_equal status "complete"}}
         <div class="py-4 px-2 border border-secondary complete">
             {{id}}. {{todo}}
         </div>
-    {{/if_equal}}
-    {{!-- {{#if completed}}
+    {{/if_equal}} --}}
+    {{#if completed}}
         <div class="py-4 px-2 border border-secondary complete">
             {{id}}. {{todo}}
         </div>
-    {{/if}} --}}
+    {{/if}}
 </li>

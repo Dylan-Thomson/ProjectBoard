@@ -8,5 +8,5 @@ VALUES ("Cry");
 INSERT INTO todos (todo)
 VALUES ("Debug");
 
-INSERT INTO todos (todo, status)
-VALUES ("Sleep", "complete");
+INSERT INTO todos (todo, completed)
+VALUES ("Sleep", true);

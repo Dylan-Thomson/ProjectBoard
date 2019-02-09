@@ -5,6 +5,6 @@ USE projectboard_db;
 CREATE TABLE todos (
 id INT(10) NOT NULL AUTO_INCREMENT,
 todo VARCHAR(100) NOT NULL,
-status VARCHAR(25) DEFAULT "todo",
+completed BOOLEAN DEFAULT false,
 PRIMARY KEY(id)
 );

@@ -1,10 +1,10 @@
 <li class="my-1">
     {{#if completed}}
-        <div class="py-4 px-2 border border-secondary complete">
+        <div class="bg-white p-4 m-4 complete">
             {{id}}. {{task}} 
         </div>
     {{else}}
-        <div class="py-4 px-2 border border-dark todo" data-id="{{id}}" data-completed="{{completed}}">
+        <div class="bg-white p-4 m-4 todo" data-id="{{id}}" data-completed="{{completed}}">
             {{id}}. {{task}} <span class="float-right"><i class="complete-task fas fa-2x fa-check-square"></i></span>
         </div>
     {{/if}}

@@ -10,6 +10,10 @@ body, .container {
     display: inline;
 }
 
+.task:hover {
+    opacity: 0.8;
+}
+
 .view-task {
     display: none;
 }

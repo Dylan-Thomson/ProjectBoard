@@ -1,9 +1,9 @@
 <div class="container d-flex flex-column justify-content-center">
-    <div class="header">
-        <h1 class="text-center">Project Board</h1>
-    </div>
+    <header class="text-center text-white">
+        <h1 class="display-4">Project Board</h1>
+    </header>
 
-    <div class="row">
+    <div class="row text-dark">
         <div class="col-md-4 task-list my-4">
             <h2 class="task-list-title h5 bg-light p-3 my-0">To Do</h2>
             <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="todo">
@@ -44,7 +44,14 @@
             </div>
         </div>
     </div>
-
+    <footer class="text-center text-white my-4">Copyright &copy;
+        <script>
+            var d = new Date()
+            document.write(d.getFullYear())
+        </script> 
+        <a href="https://github.com/Dylan-Thomson" target="_blank"> Dylan Thomson</a>
+    </footer>
+</div>
 {{!-- ADD TASK MODAL --}}
 <div class="modal fade" id="add-task-modal" tabindex="-1" role="dialog" aria-labelledby="add-task-modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

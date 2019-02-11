@@ -8,5 +8,10 @@ VALUES ("Cry");
 INSERT INTO todos (task)
 VALUES ("Debug");
 
-INSERT INTO todos (task, completed)
-VALUES ("Sleep", true);
+INSERT INTO todos (task, status)
+VALUES ("Sleep", 2);
+
+INSERT INTO todos (task, status)
+VALUES ("Eat", 3);
+
+select * from todos;

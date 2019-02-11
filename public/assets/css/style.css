@@ -2,6 +2,18 @@
     color: green;
 }
 
-.complete-task:hover, .open-form:hover {
+.set-complete:hover, .set-in-progress:hover, .add-todo:hover {
     cursor: pointer;
+}
+
+.task-list, .task-li, .task {
+    border-radius: 15px;
+}
+
+.task-list-title {
+    border-radius: 15px 15px 0 0;
+}
+
+.task-list-footer {
+    border-radius: 0 0 15px 15px;
 }

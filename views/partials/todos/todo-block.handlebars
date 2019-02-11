@@ -1,11 +1,17 @@
-<li class="my-1">
-    {{#if completed}}
-        <div class="bg-white p-4 m-4 complete">
+<li class="task-li my-3">
+    {{#ifeq status "todo"}}
+        <div class="task bg-white todo d-flex justify-content-between p-2" data-id="{{id}}" data-status="{{status}}">
+            {{id}}. {{task}} <span class="float-right"><i class="set-in-progress far fa-edit fa-lg"></i> <span class="float-right"> <i class="set-complete fas fa-check-square fa-lg"></i></span>
+        </div>
+    {{/ifeq}}
+    {{#ifeq status "in-progress"}}
+        <div class="task bg-white in-progress d-flex justify-content-between p-2" data-id="{{id}}" data-status="{{status}}">
+            {{id}}. {{task}} <span class="float-right"><i class="set-complete fas fa-check-square fa-lg"></i></span>
+        </div>
+    {{/ifeq}}
+    {{#ifeq status "complete"}}
+        <div class="task bg-white complete d-flex justify-content-between p-2" data-id="{{id}}" data-status="{{status}}">
             {{id}}. {{task}} 
         </div>
-    {{else}}
-        <div class="bg-white p-4 m-4 todo" data-id="{{id}}" data-completed="{{completed}}">
-            {{id}}. {{task}} <span class="float-right"><i class="complete-task fas fa-2x fa-check-square"></i></span>
-        </div>
-    {{/if}}
+    {{/ifeq}}
 </li>

@@ -5,7 +5,7 @@
         </div>
     {{/ifeq}}
     {{#ifeq status "in-progress"}}
-        <div class="task bg-info text-white in-progress d-flex justify-content-between p-2" data-id="{{id}}" data-status="{{status}}">
+        <div class="task bg-warning text-white in-progress d-flex justify-content-between p-2" data-id="{{id}}" data-status="{{status}}">
             {{id}}. {{task}} <span class="float-right"><i class="view-task fas fa-ellipsis-h"></i></i></span>
         </div>
     {{/ifeq}}

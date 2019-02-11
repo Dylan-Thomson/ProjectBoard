@@ -1,58 +1,58 @@
-<div class="container">
-    <div class="header">
-        <h1 class="text-center">Project Board</h1>
-    </div>
+<div class="container d-flex flex-column justify-content-center">
+    <header class="text-center text-white">
+        <h1 class="display-4">Project Board</h1>
+    </header>
 
-    <div class="row">
-        <div class="col-md-6 bg-light p-0">
-            <div class="bg-secondary px-2 py-1">
-                <h2 class="text-center">To Do <span class="float-right"><i class="open-form fas fa-plus-square"></i></span></h2>
-            </div>
-            <ul class="list-unstyled">
-                {{!-- {{#each todos}}
-                    {{#if_equal status "todo"}}
-                        {{> todos/todo-block completed=false}}
-                    {{/if_equal}}
-                {{/each}} --}}
+    <div class="row text-dark">
+        <div class="col-md-4 task-list my-4">
+            <h2 class="task-list-title h5 bg-light p-3 my-0">To Do</h2>
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="todo">
                 {{#each todos}}
-                    {{#unless completed}}
-                        {{> todos/todo-block completed=false}}
-                    {{/unless}}
+                    {{#ifeq status "todo"}}
+                        {{> todos/todo-block}}
+                    {{/ifeq}}
                 {{/each}}
             </ul>
-            {{!-- <div>
-                <i class="open-form fas fa-plus-square"></i> Add New Task
-            </div> --}}
-            {{!-- <div class="card">
-                <div class="card-body">
-                </div>
-            </div> --}}
+            <div class="add-todo task-list-footer bg-light my-0 p-3" data-status="todo">
+                <i class="fas fa-plus"></i> Add A Task
+            </div>
         </div>
-        <div class="col-md-6 bg-light p-0">
-            <div class="bg-secondary px-2 py-1">
-                <h2 class="text-center">Completed</h2>
-            </div>
-            <ul class="list-unstyled">
-                {{!-- {{#each todos}}
-                    {{#if_equal status "complete"}}
-                        {{> todos/todo-block completed=true}}
-                    {{/if_equal}}
-                {{/each}} --}}
+        <div class="col-md-4 task-list my-4">
+            <h2 class="task-list-title h5 bg-light p-3 my-0">In Progress</h2>
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="in-progress">
                 {{#each todos}}
-                    {{#if completed}}
-                        {{> todos/todo-block completed=true}}
-                    {{/if}}
+                    {{#ifeq status "in-progress"}}
+                        {{> todos/todo-block}}
+                    {{/ifeq}}
                 {{/each}}
             </ul>
-            {{!-- <div class="card">
-                <div class="card-body">
-                </div>
-            </div> --}}
+            <div class="add-todo task-list-footer bg-light my-0 p-3" data-status="in-progress">
+                <i class="fas fa-plus"></i> Add A Task
+            </div>
+        </div>
+        <div class="col-md-4 task-list my-4">
+            <h2 class="task-list-title h5 bg-light p-3 my-0">Complete</h2>
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="complete">
+                {{#each todos}}
+                    {{#ifeq status "complete"}}
+                        {{> todos/todo-block}}
+                    {{/ifeq}}
+                {{/each}}
+            </ul>
+            <div class="add-todo task-list-footer bg-light my-0 p-3" data-status="complete">
+                <i class="fas fa-plus"></i> Add A Task
+            </div>
         </div>
     </div>
+    <footer class="text-center text-white my-4">Copyright &copy;
+        <script>
+            var d = new Date()
+            document.write(d.getFullYear())
+        </script> 
+        <a href="https://github.com/Dylan-Thomson" target="_blank"> Dylan Thomson</a>
+    </footer>
 </div>
-
-
+{{!-- ADD TASK MODAL --}}
 <div class="modal fade" id="add-task-modal" tabindex="-1" role="dialog" aria-labelledby="add-task-modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -63,17 +63,49 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="my-4" action="/api/todos" method="POST">
+        <form class="" action="/api/todos" method="POST">
             <div class="form-group">
-                <input class="form-control" name="todo" type="text">
+                <label for="task-input">Task:</label>
+                <input class="form-control" name="task" id="task-input" type="text">
             </div>
-            <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" value="submit" class="btn btn-primary" id="submit-task"><i class="fas fa-list"></i> Submit</button>
         </form>
       </div>
-      {{!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> --}}
+    </div>
+  </div>
+</div>
+
+{{!-- VIEW TASK MODAL --}}
+<div class="modal fade" id="view-task-modal" tabindex="-1" role="dialog" aria-labelledby="view-task-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">View Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <ul class="list-unstyled">
+              <li>Task: <span id="view-modal-task"></span></li>
+              <li>Current status: <span id="view-modal-status"></span></li>
+          </ul>
+          <form action="">
+              <div class="form-group">
+                  <label for="update-status">Update Status</label>
+                  <select name="update-status" class="form-control" id="update-status">
+                      <option value="todo">To Do</option>
+                      <option value="in-progress">In Progress</option>
+                      <option value="complete">Complete</option>
+
+                  </select>
+              </div>
+          </form>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" id="submit-status">Submit Changes</button>
+      </div>
     </div>
   </div>
 </div>

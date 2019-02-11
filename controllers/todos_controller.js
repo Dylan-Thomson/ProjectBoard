@@ -8,18 +8,23 @@ router.get("/", (req, res) => {
         const handlebarsObj = {
             todos: data
         };
-        console.log(handlebarsObj);
         res.render("index", handlebarsObj);
     });
 });
 
-router.put("/api/todos/:id", (req, res) => {
+router.get("/api/todos/:id", (req, res) => {
+    const condition = "id = " + req.params.id;
+    todo.selectOne(condition, result => {
+        res.json(result);
+    });
+});
+
+router.put("/api/todos/:id/:status", (req, res) => {
     const condition = "id = " + req.params.id;
 
     todo.update(
         {
-            // status: "'complete'"
-            completed: true
+            status: "'" + req.params.status + "'"
         },
         condition,
         result => {
@@ -32,7 +37,7 @@ router.put("/api/todos/:id", (req, res) => {
 });
 
 router.post("/api/todos", (req, res) => {
-    todo.create(["task"], [req.body.todo], result => {
+    todo.create(["task", "status"], [req.body.task, req.body.status], result => {
         res.redirect("../")
     });
 });

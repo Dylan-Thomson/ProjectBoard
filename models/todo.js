@@ -6,6 +6,11 @@ const todo = {
             callback(result);
         });
     },
+    selectOne: (condition, callback) => {
+        orm.selectOne("todos", condition, result => {
+            callback(result);
+        });
+    },
     create: (cols, vals, callback) => {
         orm.insertOne("todos", cols, vals, result => {
             callback(result);

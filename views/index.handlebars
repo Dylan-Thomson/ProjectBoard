@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container d-flex flex-column justify-content-center">
     <div class="header">
         <h1 class="text-center">Project Board</h1>
     </div>
@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-4 task-list my-4">
             <h2 class="task-list-title h5 bg-light p-3 my-0">To Do</h2>
-            <ul class="task-list-ul list-unstyled bg-light p-3 my-0">
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="todo">
                 {{#each todos}}
                     {{#ifeq status "todo"}}
                         {{> todos/todo-block}}
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-4 task-list my-4">
             <h2 class="task-list-title h5 bg-light p-3 my-0">In Progress</h2>
-            <ul class="task-list-ul list-unstyled bg-light p-3 my-0">
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="in-progress">
                 {{#each todos}}
                     {{#ifeq status "in-progress"}}
                         {{> todos/todo-block}}
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-4 task-list my-4">
             <h2 class="task-list-title h5 bg-light p-3 my-0">Complete</h2>
-            <ul class="task-list-ul list-unstyled bg-light p-3 my-0">
+            <ul class="task-list-ul list-unstyled bg-light p-3 my-0" data-status="complete">
                 {{#each todos}}
                     {{#ifeq status "complete"}}
                         {{> todos/todo-block}}
@@ -56,12 +56,48 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="my-4" action="/api/todos" method="POST">
+        <form class="" action="/api/todos" method="POST">
             <div class="form-group">
+                <label for="task-input">Task:</label>
                 <input class="form-control" name="task" id="task-input" type="text">
             </div>
-            <button type="submit" value="submit" class="btn btn-primary" id="submit-task">Submit</button>
+            <button type="submit" value="submit" class="btn btn-primary" id="submit-task"><i class="fas fa-list"></i> Submit</button>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- VIEW TASK MODAL --}}
+<div class="modal fade" id="view-task-modal" tabindex="-1" role="dialog" aria-labelledby="view-task-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">View Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <ul class="list-unstyled">
+              <li>Task: <span id="view-modal-task"></span></li>
+              <li>Current status: <span id="view-modal-status"></span></li>
+          </ul>
+          <form action="">
+              <div class="form-group">
+                  <label for="update-status">Update Status</label>
+                  <select name="update-status" class="form-control" id="update-status">
+                      <option value="todo">To Do</option>
+                      <option value="in-progress">In Progress</option>
+                      <option value="complete">Complete</option>
+
+                  </select>
+              </div>
+          </form>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" id="submit-status">Submit Changes</button>
       </div>
     </div>
   </div>

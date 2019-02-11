@@ -43,6 +43,20 @@ const orm = {
             callback(result);
         });
     },
+    selectOne: (table, condition, callback) => {
+        let queryString = "SELECT * FROM ";
+        queryString += table;
+        queryString += " WHERE ";
+        queryString += condition;
+        console.log(queryString);
+
+        connection.query(queryString, (err, result) => {
+            if(err) {
+                throw err;
+            }
+            callback(result);
+        })
+    },
     insertOne: (table, cols, vals, callback) => {
         let queryString = "INSERT INTO " + table;
         queryString += " (";
@@ -81,31 +95,36 @@ const orm = {
 }
 
 function test() {
-    orm.selectAll("todos", result => {
+    orm.selectOne("todos", "id = 1", result => {
         console.log(result);
     });
+    // orm.selectAll("todos", result => {
+    //     console.log(result);
+    // });
 
-    orm.insertOne("todos", ["task"], ["Eat dinner"], result => {
-        console.log(result);
-    });
+    // orm.insertOne("todos", ["task"], ["Eat dinner"], result => {
+    //     console.log(result);
+    // });
 
-    orm.selectAll("todos", result => {
-        console.log(result);
-    });
+    // orm.selectAll("todos", result => {
+    //     console.log(result);
+    // });
 
-    orm.updateOne(
-        "todos",
-        {
-        task: "Cook Dinner"
-        },
-        "id = 4",
-        result => {
-            console.log(result);
-        }
-    );
-    orm.selectAll("todos", result => {
-        console.log(result);
-    });
+    // orm.updateOne(
+    //     "todos",
+    //     {
+    //     task: "Cook Dinner"
+    //     },
+    //     "id = 4",
+    //     result => {
+    //         console.log(result);
+    //     }
+    // );
+    // orm.selectAll("todos", result => {
+    //     console.log(result);
+    // });
 }
+
+// test();
 
 module.exports = orm;

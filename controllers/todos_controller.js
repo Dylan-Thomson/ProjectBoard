@@ -12,6 +12,13 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/api/todos/:id", (req, res) => {
+    const condition = "id = " + req.params.id;
+    todo.selectOne(condition, result => {
+        res.json(result);
+    });
+});
+
 router.put("/api/todos/:id/:status", (req, res) => {
     const condition = "id = " + req.params.id;
 

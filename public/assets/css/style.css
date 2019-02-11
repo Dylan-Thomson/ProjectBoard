@@ -1,9 +1,17 @@
-.complete-task {
-    color: green;
+body, .container {
+    min-height: 100vh;
 }
 
-.set-complete:hover, .set-in-progress:hover, .add-todo:hover {
+.set-complete:hover, .set-in-progress:hover, .add-todo:hover, .view-task:hover {
     cursor: pointer;
+}
+
+.task:hover .view-task {
+    display: inline;
+}
+
+.view-task {
+    display: none;
 }
 
 .task-list, .task-li, .task {
@@ -16,4 +24,9 @@
 
 .task-list-footer {
     border-radius: 0 0 15px 15px;
+}
+
+.dragged {
+    z-index: 1;
+    transform: rotate(5deg);
 }

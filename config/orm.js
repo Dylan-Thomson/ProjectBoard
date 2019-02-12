@@ -94,37 +94,4 @@ const orm = {
     }
 }
 
-function test() {
-    orm.selectOne("todos", "id = 1", result => {
-        console.log(result);
-    });
-    // orm.selectAll("todos", result => {
-    //     console.log(result);
-    // });
-
-    // orm.insertOne("todos", ["task"], ["Eat dinner"], result => {
-    //     console.log(result);
-    // });
-
-    // orm.selectAll("todos", result => {
-    //     console.log(result);
-    // });
-
-    // orm.updateOne(
-    //     "todos",
-    //     {
-    //     task: "Cook Dinner"
-    //     },
-    //     "id = 4",
-    //     result => {
-    //         console.log(result);
-    //     }
-    // );
-    // orm.selectAll("todos", result => {
-    //     console.log(result);
-    // });
-}
-
-// test();
-
 module.exports = orm;

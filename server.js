@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
@@ -26,7 +27,7 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-const routes = require(__dirname + "/controllers/todos_Controller.js");
+const routes = require(path.join(__dirname, "controllers/todos_Controller.js"));
 
 app.use(routes);
 

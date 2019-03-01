@@ -1,5 +1,7 @@
 # ProjectBoard
 
+![Demo](public/assets/images/demo.gif)
+
 ## Task Management For Group Projects
 
 [Live Site](https://lit-fjord-11882.herokuapp.com/)

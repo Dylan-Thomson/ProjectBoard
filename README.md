@@ -39,3 +39,11 @@ Finally, I had a bit of trouble deploying to Heroku. While my application worked
 * Tweaks for dragging and dropping tasks, especially on mobile.
 * Look into sanitizing user input. Sequelize would help with this.
 * Allow user to delete tasks, update more than just the status, etc.
+
+## How To Clone
+* Open terminal to directory you wish to clone into and run `git clone https://github.com/Dylan-Thomson/ProjectBoard.git`
+* Install modules by running `npm install`
+* Create a MySQL database using `schema.sql` using MySQL workbench or another tool of your choice
+* Go into `connection.js` and enter the relevant information for connecting to your database
+* Run the application by entering `node server.js` into your terminal
+* Open browser and type `localhost:3000` (or whatever port number you are using)
